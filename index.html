@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Auth Modular</title>
+
+    <!-- Inicializa tema cedo: usa localStorage.theme ou prefers-color-scheme -->
+    <script>
+      (() => {
+        try {
+          const saved = localStorage.getItem("theme");
+          const prefersDark = window.matchMedia &&
+            window.matchMedia("(prefers-color-scheme: dark)").matches;
+          const theme = saved || (prefersDark ? "dark" : "light");
+          const root = document.documentElement;
+          if (theme === "dark") root.classList.add("dark");
+          else root.classList.remove("dark");
+        } catch (_) {
+          /* se der erro, fica no claro por padrão */
+        }
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

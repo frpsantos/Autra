@@ -1,0 +1,30 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+html, body, #root {
+  height: 100%;
+}
+
+/* Inicializa tema: claro/escuro conforme storage ou sistema */
+@layer base {
+  html {
+    color-scheme: light dark;
+  }
+}
+
+@keyframes c1RiseIn { 0% { transform: translateY(140px); opacity: 0 } 100% { transform: translateY(0); opacity: 1 } }
+.c1-rise { animation: c1RiseIn 900ms ease-out forwards; }
+
+
+/* classe utilitária para animar a logo */
+.c1-rise {
+  animation: c1RiseIn 900ms ease-out forwards;
+}
+/* usa a viewport segura de mobile */
+:root { --vh: 1svh; }              /* browsers modernos */
+html, body, #root { height: 100%; }
+
